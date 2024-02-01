@@ -1,0 +1,6 @@
+duckdb
+rdfpandas
+rdflib
+pandas
+psycopg2-binary
+dbt-postgres

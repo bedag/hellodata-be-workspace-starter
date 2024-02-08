@@ -54,6 +54,20 @@ common_k8s_pod_operator_params = {
     "cmds": ["/bin/bash", "-cx"],
     "volumes": [volume],
     "volume_mounts": [volume_mount],
+    "env_vars": {
+        # Add all env variables you need from deployment/env file
+        "HD_WS_BOILERPLATE_NAME": os.getenv("HD_WS_BOILERPLATE_NAME"),
+        "HD_NAMESPACE": os.getenv("HD_NAMESPACE"),
+        "POSTGRES_USERNAME": os.getenv("POSTGRES_USERNAME"),
+        "POSTGRES_PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "POSTGRES_HOST": os.getenv("POSTGRES_HOST"),
+        "POSTGRES_DATABASE": os.getenv("POSTGRES_DATABASE"),
+        "POSTGRES_PORT": os.getenv("POSTGRES_PORT"),
+        "SQL_SCHEMA_NAME": os.getenv("SQL_SCHEMA_NAME"),
+        "VOLUME_CLAIM_NAME": os.getenv("VOLUME_CLAIM_NAME"),
+        "VOLUME_NAME": os.getenv("VOLUME_NAME"),
+        "DATA_PATH": os.getenv("DATA_PATH"),
+    },
 }
 
 with DAG(

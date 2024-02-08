@@ -39,7 +39,7 @@ with DAG(
 ) as dag:
     KubernetesPodOperator(
         namespace=namespace,
-        image="hellodata-ws-boilerplate:0.1.0-a.1",
+        image="hellodata-ws-boilerplate:v1",
         image_pull_secrets=[k8s.V1LocalObjectReference("regcred-azurecr")],
         labels={"pod-label-test": "label-name-test"},
         name="airflow-running-dagster-workspace",

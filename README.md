@@ -12,13 +12,14 @@ Find the detailed documentation on [Workspaces Documentation](https://kanton-ber
 
 - the dags you are running on HelloDATA are in [/src/dags/airflow/dags/](/src/dags/airflow/dags/) folder. Check [boiler-example.py](/src/dags/airflow/dags/boiler-example.py) for an example
 - add your deployments needs and requirements into [deployment needs](deployment/deployment-needs.yaml). This step will be integrated in your working HelloDATA environments.
+  - make sure to set the ENV variable (e.g. postgres local password) on `deployment/dev`
 - you can specify all your requirements in [Dockerfile](Dockerfile)
-- build your image with [build-and-push.sh](build-and-push.sh) or create your own one. Be sure that your HelloDATA instance has access to your uploaded Docker registry.
-
+- build your image with `docker build -t hellodata-ws-boilerplate:v1 .` or create your own one. Be sure that your HelloDATA instance has access to your uploaded Docker registry.
+  - see all comands in `Makefile`. If you want to check the docker file, run it interactively with `docker run -it hellodata-ws-boilerplate:v1 bash`
 
 ## Airflow locally (testing)
 
-For testing your Airflow locally. You can use above menitoned Astro CLI, which makes it very easy to run Airflow with one command `astro start`. See more details on [Airflow Readme](/src/dags/airflow/README.md).
+For testing your Airflow locally. You can use above menitoned Astro CLI, which makes it very easy to run Airflow with one command `	astro dev start -e ../../../deployment/env`. See more details on [Airflow Readme](/src/dags/airflow/README.md).
 
 Requirements:
 - Local Docker installed (either native or Docker-Desktop)

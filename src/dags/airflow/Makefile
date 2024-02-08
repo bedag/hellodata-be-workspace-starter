@@ -1,5 +1,5 @@
 airflow-start:
-	astro dev start
+	astro dev start -e ../../../deployment/env
 
 airflow-stop:
 	astro dev stop

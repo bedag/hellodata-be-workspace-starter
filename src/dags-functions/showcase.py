@@ -12,16 +12,14 @@ import pandas as pd
 import psycopg2
 import argparse
 
-POSTGRES_URL = os.getenv("POSTGRES_URL", "localhost")
-POSTGRES_USERNAME = os.getenv("POSTGRES_USERNAME", "sspaeti")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "postgres")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "host.docker.internal")
-POSTGRES_DATABASE = os.getenv("POSTGRES_DATABASE", "tierstatistik")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
-POSTGRES_DRIVER_CLASS_NAME = os.getenv(
-    "POSTGRES_DRIVER_CLASS_NAME", "org.postgresql.Driver"
-)
-SQL_SCHEMA_NAME = "tierstatistik_lzn."
+POSTGRES_USERNAME = os.getenv("POSTGRES_USERNAME")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST")
+POSTGRES_DATABASE = os.getenv("POSTGRES_DATABASE")
+POSTGRES_PORT = os.getenv("POSTGRES_PORT")
+SQL_SCHEMA_NAME = os.getenv("SQL_SCHEMA_NAME")
+
+DATA_PATH = os.getenv("DATA_PATH")
 
 
 def data_download():
@@ -54,8 +52,6 @@ def data_download():
     g.parse("https://tierstatistik.identitas.ch/tierstatistik.rdf", format="xml")
     df = to_dataframe(g)
 
-    data_path = "/mnt/pvc/"
-
     for index in df.index:
         file_url = index
         if "csv" in index:
@@ -66,8 +62,10 @@ def data_download():
                 df_data = df_breed_melt(df_data)
 
             df_data.rename(columns=lambda x: snake_case(x), inplace=True)
+            print(f"ENV - DATA_PATH: {DATA_PATH}"),
+            print(f"ENV - file_name_csv: {file_name_csv}"),
             df_data.to_csv(
-                data_path + os.path.basename(file_name_csv).split("/")[-1],
+                DATA_PATH + os.path.basename(file_name_csv).split("/")[-1],
                 index=False,
             )
             print(f"File downloaded and processed: {file_name_csv}")
@@ -82,13 +80,11 @@ def create_tables():
     conn = psycopg2.connect(conn_str)
     cur = conn.cursor()
 
-    data_path = "/mnt/pvc/"
-
     # loop through csv only
-    csv_files = [file for file in os.listdir(data_path) if file.endswith(".csv")]
+    csv_files = [file for file in os.listdir(DATA_PATH) if file.endswith(".csv")]
 
     for file in csv_files:
-        file_path_csv = os.path.join(data_path, file)
+        file_path_csv = os.path.join(DATA_PATH, file)
         print(file_path_csv)
 
         df_data = pd.read_csv(file_path_csv)
@@ -121,13 +117,11 @@ def insert_data():
     conn = psycopg2.connect(conn_str)
     cur = conn.cursor()
 
-    data_path = "/mnt/pvc/"
-
     # loop through csv only
-    csv_files = [file for file in os.listdir(data_path) if file.endswith(".csv")]
+    csv_files = [file for file in os.listdir(DATA_PATH) if file.endswith(".csv")]
 
     for file in csv_files:
-        file_path_csv = os.path.join(data_path, file)
+        file_path_csv = os.path.join(DATA_PATH, file)
         sql_table_name = (
             SQL_SCHEMA_NAME
             + os.path.basename(file_path_csv)

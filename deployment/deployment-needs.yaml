@@ -22,26 +22,4 @@ spec:
       image: hellodata-ws-boilerplate:0.1.0-a.1
       imagePullPolicy: Always
 
-#needed envs for Airflow
-airflow:
-  extraEnv: |
-    - name: "HD_NAMESPACE"
-      value: "${namespace}"
-    - name: "HD_WS_BOILERPLATE_NAME"
-      value: "dd01-ws-boilerplate"
-    - name: "POSTGRES_URL"
-      value: "127.0.0.1"
-    - name: "POSTGRES_USERNAME"
-      value: "postgres"
-    - name: "POSTGRES_PASSWORD"
-      value: "postgres"
-    - name: "POSTGRES_HOST"
-      value: "host.docker.internal"
-    - name: "POSTGRES_DATABASE"
-      value: "tierstatisti"
-    - name: "POSTGRES_PORT"
-      values: 5432
-    - name: "POSTGRES_DRIVER_CLASS_NAME"
-      value: "org.postgresql.Driver"
-    - name: "SQL_SCHEMA_NAME"
-      value: "tierstatistik_lzn."
+# ENV Variables see in deployment/env

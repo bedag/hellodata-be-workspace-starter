@@ -10,7 +10,8 @@ brew install astro
 #navigate to this directory `src/dags/airflow/`
 
 #start local Airflow instance
-astro dev start
+astro dev start -e ../../../deployment/env
+
 
 #stop local Airflow
 astro dev stop

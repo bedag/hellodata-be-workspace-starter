@@ -22,8 +22,19 @@ For testing your Airflow locally. You can use above menitoned Astro CLI, which m
 
 Requirements:
 - Local Docker installed (either native or Docker-Desktop)
-- make sure Kubernetes is enables
-- copy you local kube-file to astro: `mkdir src/dags/airflow/include/ && mkdir && src/dags/airflow/include/.kube/ && cp ~/.kube/config src/dags/airflow/include/.kube/`
+  - **Windows**: Enable in Docker Desktop under `Settings -> General -> Use WSL 2 based engine` the settings: `Add the *.docker.internal names to the host's etc/hosts file (Requires password)`
+    - Make sure Docker-Desktop entered it correctly in `C:\Windows\System32\drivers\etc\hosts`. There were some [cases](https://github.com/kanton-bern/hellodata-be/issues/21#issuecomment-1913578206) where it added wrongly. It should look something like:
+```sh
+# Added by Docker Desktop
+<YOUR-IP-HERE> host.docker.internal
+<YOUR-IP-HERE> gateway.docker.internal
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section
+```
+  - make sure Kubernetes is enabled
+- copy you local kube-file to astro: `cp ~/.kube/config src/dags/airflow/include/.kube/`
+  - **Windows**: The file is under `%USERPROFILE%\.kube\config` (C:\Users\[YourIdHere]\.kube)
 - install `KubernetesPodOperator` locally with pip (not with astro) install `pip install apache-airflow-providers-cncf-kubernetes`.
 - if you store data from one task to the next, you need a volume-mount (see `pvc.yaml`) and configure `volumes` and `volume_mounts` in Airflow (see example)
 

@@ -10,7 +10,12 @@ RUN mkdir -p /usr/src/dbt-docs/
 COPY ../src/dags/airflow/dags/* /opt/airflow/airflow_home/dags/
 COPY ../src/dbt/ /usr/src/dbt/
 
-# python helpers for DAGs and requirements.txt are here
+COPY ../src/dags-functions/requirements.txt /usr/src/app/requirements.txt
+RUN pip install --upgrade pip
+#requirements.txt is an example - please add your own dependencies here)
+RUN pip install -r /usr/src/app/requirements.txt
+
+# python helpers for DAGs 
 COPY ../src/dags-functions/* /usr/src/app/
 WORKDIR /usr/src/app
 

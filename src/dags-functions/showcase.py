@@ -62,8 +62,6 @@ def data_download():
                 df_data = df_breed_melt(df_data)
 
             df_data.rename(columns=lambda x: snake_case(x), inplace=True)
-            print(f"ENV - DATA_PATH: {DATA_PATH}"),
-            print(f"ENV - file_name_csv: {file_name_csv}"),
             df_data.to_csv(
                 DATA_PATH + os.path.basename(file_name_csv).split("/")[-1],
                 index=False,

@@ -67,7 +67,7 @@ coverage.xml
 
 # dotenv
 .env
-deployment/env
+# deployment/env
 .envrc
 
 # virtualenv

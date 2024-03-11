@@ -23,6 +23,7 @@ For testing your Airflow locally. You can use above menitoned Astro CLI, which m
 
 Requirements:
 - Local Docker installed (either native or Docker-Desktop)
+  - **Linux/MacOS**: add `127.0.0.1 host.docker.internal` to the `/etc/hosts` file.
   - **Windows**: Enable in Docker Desktop under `Settings -> General -> Use WSL 2 based engine` the settings: `Add the *.docker.internal names to the host's etc/hosts file (Requires password)`
     - Make sure Docker-Desktop entered it correctly in `C:\Windows\System32\drivers\etc\hosts`. There were some [cases](https://github.com/kanton-bern/hellodata-be/issues/21#issuecomment-1913578206) where it added wrongly. It should look something like:
 ```sh

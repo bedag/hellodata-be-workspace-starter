@@ -1,9 +1,9 @@
 HD_WS_BOILERPLATE_NAME=ws-boilerplate
 HD_NAMESPACE=default
-POSTGRES_USERNAME=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_HOST=host.docker.internal
-POSTGRES_DATABASE=tierstatistik
-POSTGRES_PORT="5432"
+POSTGRES_USERNAME_HD=postgres
+POSTGRES_PASSWORD_HD=postgres
+POSTGRES_HOST_HD=host.docker.internal
+POSTGRES_DATABASE_HD=tierstatistik
+POSTGRES_PORT_HD="5432"
 SQL_SCHEMA_NAME="tierstatistik_lzn."
 DATA_PATH="/mnt/pvc/"

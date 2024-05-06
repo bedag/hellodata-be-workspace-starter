@@ -38,11 +38,8 @@ common_k8s_pod_operator_params = {
         "POSTGRES_HOST_HD": os.getenv("POSTGRES_HOST_HD"),
         "POSTGRES_DATABASE_HD": os.getenv("POSTGRES_DATABASE_HD"),
         "POSTGRES_PORT_HD": os.getenv("POSTGRES_PORT_HD"),
+        "SQL_SCHEMA_NAME": os.getenv("SQL_SCHEMA_NAME"),
 
-        "POSTGRES_USERNAME_SVSA": os.getenv("POSTGRES_USERNAME_SVSA"),
-        "POSTGRES_PASSWORD_SVSA": os.getenv("POSTGRES_PASSWORD_SVSA"),
-        "POSTGRES_HOST_SVSA": os.getenv("POSTGRES_HOST_SVSA"),
-        "POSTGRES_DATABASE_SVSA": os.getenv("POSTGRES_DATABASE_SVSA"),
-        "POSTGRES_PORT_SVSA": os.getenv("POSTGRES_PORT_SVSA"),
     },
 }
+

@@ -12,11 +12,11 @@ import pandas as pd
 import psycopg2
 import argparse
 
-POSTGRES_USERNAME = os.getenv("POSTGRES_USERNAME")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST")
-POSTGRES_DATABASE = os.getenv("POSTGRES_DATABASE")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT")
+POSTGRES_USERNAME = os.getenv("POSTGRES_USERNAME_HD")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD_HD")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST_HD")
+POSTGRES_DATABASE = os.getenv("POSTGRES_DATABASE_HD")
+POSTGRES_PORT = os.getenv("POSTGRES_PORT_HD")
 SQL_SCHEMA_NAME = os.getenv("SQL_SCHEMA_NAME")
 
 DATA_PATH = os.getenv("DATA_PATH")
@@ -75,6 +75,7 @@ def data_download():
 def create_tables():
     print("Create tables...")
     conn_str = f"dbname='{POSTGRES_DATABASE}' user='{POSTGRES_USERNAME}' host='{POSTGRES_HOST}' password='{POSTGRES_PASSWORD}' port='{POSTGRES_PORT}'"
+    print(f"Connection string: dbname='{POSTGRES_DATABASE}' user='{POSTGRES_USERNAME}' host='{POSTGRES_HOST}' port='{POSTGRES_PORT}'")
     conn = psycopg2.connect(conn_str)
     cur = conn.cursor()
 

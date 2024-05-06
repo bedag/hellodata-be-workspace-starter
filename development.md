@@ -56,12 +56,6 @@ export POSTGRES_PASSWORD_HD=postgres
 export POSTGRES_HOST_HD=host.docker.internal
 export POSTGRES_DATABASE_HD=svsa
 export POSTGRES_PORT_HD="5444"
-
-export POSTGRES_USERNAME_SVSA=postgres
-export POSTGRES_PASSWORD_SVSA=postgres
-export POSTGRES_HOST_SVSA=host.docker.internal
-export POSTGRES_DATABASE_SVSA=svsa
-export POSTGRES_PORT_SVSA="5444"
 ```
 
 Run and test dbt:

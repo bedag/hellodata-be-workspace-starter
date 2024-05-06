@@ -69,7 +69,7 @@ with DAG(
         name="dbt-run",
         task_id="dbt_run",
         arguments=[
-            "cd /usr/src/dbt/ && dbt deps && dbt run && echo 'dbt run successfully' && dbt docs generate --target-path /usr/src/dbt-docs && echo 'dbt docs generate successfully'",
+            "cd /usr/src/app/dbt/ && dbt run && echo 'dbt run successfully' && dbt docs generate --target-path /usr/src/app/dbt-docs && echo 'dbt docs generate successfully'",
         ],
     )
 

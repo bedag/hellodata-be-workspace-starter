@@ -1,8 +1,8 @@
 from kubernetes.client import models as k8s
 import os
 
-data_path = "/tmp/TDDO"
-workspace_name = "SVSA"
+data_path = os.getenv("DATA_PATH")
+workspace_name = "HD_WS_BOILERPLATE_NAME"
 namespace = "default"
 volume_claim_name = "my-pvc"
 volume_name = "storage"
@@ -31,6 +31,8 @@ common_k8s_pod_operator_params = {
     "volume_mounts": [volume_mount],
     "env_vars": {
         # Add all env variables you need from deployment/local/env file
+        "DATA_PATH": os.getenv("DATA_PATH"),
+
         "POSTGRES_USERNAME_HD": os.getenv("POSTGRES_USERNAME_HD"),
         "POSTGRES_PASSWORD_HD": os.getenv("POSTGRES_PASSWORD_HD"),
         "POSTGRES_HOST_HD": os.getenv("POSTGRES_HOST_HD"),

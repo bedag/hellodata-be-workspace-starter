@@ -7,10 +7,10 @@ Overview
 #install - more options: https://docs.astronomer.io/astro/cli/install-cli
 brew install astro 
 
-#navigate to this directory `src/dags/airflow/`
+#navigate to this directory `deployment/local/airflow`
 
 #start local Airflow instance
-astro dev start -e ../../../deployment/env
+astro dev start -e ../env
 
 
 #stop local Airflow

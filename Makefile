@@ -18,7 +18,7 @@ get-volume-mount:
 
 astro-start:
 	cd deployment/local/airflow/
-	astro dev start -e ../../env
+	astro dev start -e ../env
 
 astro-stop:
 	cd deployment/local/airflow/

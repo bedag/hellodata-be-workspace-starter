@@ -17,6 +17,9 @@ RUN pip install -r /usr/src/app/requirements.txt
 
 WORKDIR /usr/src/app
 
+# Copy the script into the container
+COPY src/duckdb/query_duckdb.py /usr/src/app/
+
 # the actual dag files
 COPY ./src/dags/* /usr/src/app/dags/
 # python helpers for DAGs

@@ -18,7 +18,7 @@ Find the detailed documentation on [Workspaces Documentation](https://kanton-ber
 
 ## Airflow locally (testing)
 
-For testing your Airflow locally. You can use above menitoned Astro CLI, which makes it very easy to run Airflow with one command `	astro dev start -e ../../../deployment/env`. See more details on [Airflow Readme](/src/dags/airflow/README.md).
+For testing your Airflow locally. You can use above menitoned Astro CLI, which makes it very easy to run Airflow with one command `	astro dev start -e ../env`. See more details on [Airflow Readme](/src/dags/airflow/README.md).
 
 Requirements:
 - Local Docker installed (either native or Docker-Desktop)

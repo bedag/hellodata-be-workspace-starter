@@ -43,7 +43,7 @@ volume_mount = k8s.V1VolumeMount(name=VOLUME_NAME, mount_path=DATA_PATH)
 # Define common parameters for KubernetesPodOperator tasks
 common_k8s_pod_operator_params = {
     "namespace": NAMESPACE,
-    "image": "hellodata-ws-boilerplate:v1",
+    "image": "hellodata-ws-boilerplate:local-build",
     "image_pull_secrets": [k8s.V1LocalObjectReference("regcred-azurecr")],
     "get_logs": True,
     "is_delete_operator_pod": True,

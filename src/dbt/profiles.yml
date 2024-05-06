@@ -5,10 +5,11 @@ showcase_tierstatistik:
     test: 
       type: postgres
       threads: 1
-      host: "host.docker.internal"
-      port: 5432
-      user: "sspaeti"
-      pass: "postgres"
-      dbname: "tierstatistik"
+      host: "{{ env_var('POSTGRES_HOST_HD') }}"
+      port: "{{ env_var('POSTGRES_PORT_HD') | as_number }}"
+      user: "{{ env_var('POSTGRES_USERNAME_HD') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD_HD') }}"
+      dbname: "{{ env_var('POSTGRES_DATABASE_HD') }}"
       schema: "tierstatistik"
+
 

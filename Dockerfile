@@ -2,6 +2,8 @@ FROM python:3.11-slim
 
 # install vim for development
 RUN apt-get update && apt-get install -y vim
+# Create the workspace directory for devcontainers
+RUN mkdir -p /workspace
 
 RUN mkdir -p /opt/airflow/airflow_home/dags/
 

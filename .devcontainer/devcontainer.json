@@ -12,13 +12,13 @@
 		"dockerfile": "../Dockerfile",
 		"runArgs": [
 			"--env-file",
-			"../deplyoment/local/env"
+			"../deployment/local/env"
 		]
-	},
-	"settings": {
-		// Put any VSCode settings here, such as extensions to install, etc.
-	},
-	"extensions": [
-		// List extensions here
-	]
+	}
+	//,"settings": {
+	//	// Put any VSCode settings here, such as extensions to install, etc.
+	//},
+	//"extensions": [
+	//	// List extensions here
+	//]
 }

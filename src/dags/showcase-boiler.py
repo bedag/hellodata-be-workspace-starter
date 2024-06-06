@@ -35,7 +35,7 @@ with DAG(
     schedule="@once",
     default_args=default_args,
     description="Showcase to run Airflow and dbt on hello data workspace in airflow",
-    tags=[workspace_name],
+    tags=["Demo", "Example", "Showcase", workspace_name],
 ) as dag:
     data_download = KubernetesPodOperator(
         **common_k8s_pod_operator_params,

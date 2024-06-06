@@ -36,7 +36,7 @@ with DAG(
     schedule="@once",
     default_args=default_args,
     description="Boiler Plate for running a hello data workspace in airflow",
-    tags=[workspace_name],
+    tags=["Demo", "Example", "Boilerplate", workspace_name],
 ) as dag:
     KubernetesPodOperator(
         **common_k8s_pod_operator_params,

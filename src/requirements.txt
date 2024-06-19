@@ -3,4 +3,6 @@ rdfpandas
 rdflib
 pandas
 psycopg2-binary
-dbt-postgres
+dbt-core
+#apparently 1.8 Error: pg_config executable not found.
+dbt-postgres!=1.8.0,!=1.8.1
